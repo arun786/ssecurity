@@ -1,0 +1,42 @@
+server:
+  port: 8080
+spring:
+  profiles:
+    active: BasicSecurityCustomLoginPage
+
+---
+
+spring:
+     profiles: basic
+     h2:
+       console:
+         enabled: false
+     security:
+       user:
+         name: user
+         password: user
+
+---
+spring:
+  profiles: BasicSecurity
+  h2:
+    console:
+      enabled: false
+  security:
+    user:
+      name: root
+      password: root-password
+      roles: ADMIN
+
+---
+
+spring:
+  profiles: BasicSecurityCustomLoginPage
+  h2:
+    console:
+      enabled: false
+  security:
+    user:
+      name: root
+      password: root-password
+      roles: ADMIN
