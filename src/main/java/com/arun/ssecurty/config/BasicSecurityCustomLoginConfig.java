@@ -35,8 +35,13 @@ public class BasicSecurityCustomLoginConfig extends WebSecurityConfigurerAdapter
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/v1/**").hasRole(userConfiguration.getRoles())
+                .antMatchers("/signup").permitAll()
+                .antMatchers("/user/register").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
-                .loginProcessingUrl("/doLogin");
+                .loginProcessingUrl("/doLogin")
+
+        ;
     }
 }
